@@ -46,6 +46,7 @@ export class AppComponent implements OnInit {
     // this.secondGroup = this.formBuilder.group({
     //   secondCtrl: ['', Validators.required],
     // })
+    screen.orientation.lock("portrait");
   }
 
   onGiftClick() {
