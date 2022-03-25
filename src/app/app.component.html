@@ -21,12 +21,34 @@
     <span>De előbb meg kell győződnünk arról, hogy ez az ajándék valóban titeket illet. Kérjük, válaszoljatok az alábbi kérdésekre!</span>
 
   </div>
-  <mat-stepper orientation="vertical" [linear]="isFormLinear" #stepper>
+  <mat-stepper orientation="vertical" linear #stepper>
     <mat-step>
-      <p>lul</p>
+      <p>Hányadik évfordulót ünneplitek ebben az évben?</p>
+      <mat-radio-group
+      class="anniversary-group"
+      [(ngModel)]="selectedAnniversary"
+      [disabled]="anniversaryCompleted !== undefined && anniversaryCompleted">
+        <mat-radio-button class="anniversary-button" *ngFor="let anniversary of anniversaryList" [value]="anniversary"
+                          (click)="onAnniversarySelected(anniversary)" [disabled]="anniversaryCompleted !== undefined && anniversaryCompleted">
+          {{anniversary}}
+        </mat-radio-button>
+      </mat-radio-group>
+      <div>{{anniversaryMessage}}</div>
+      <div *ngIf="anniversaryCompleted">
+        <button mat-button matStepperNext>Tovább</button>
+      </div>
     </mat-step>
     <mat-step>
-      <p>ikszdé</p>
+      <p>1-től 10-ig mennyire szeretitek egymást?</p>
+      <mat-slider min="1" max="10" step="1" value="{{lovemeterValue}}" (change)="onLovemeterChange($event)"
+      [thumbLabel]="true" [disabled]="lovemeterCompleted !== undefined && lovemeterCompleted"></mat-slider>
+      <div>{{lovemeterMessage}}</div>
+      <div *ngIf="lovemeterCompleted">
+        <button mat-button matStepperNext>Tovább</button>
+      </div>
+    </mat-step>
+    <mat-step>
+      <p>UTOLSÓ KÉRDÉS: Számítottatok ilyen meglepetésre?</p>
     </mat-step>
     <mat-step>
       <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/xtjamFPvoxo?controls=0"

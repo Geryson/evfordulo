@@ -304,3 +304,18 @@ svg#clouds {
 .form-container {
   margin-top: 70px;
 }
+
+.anniversary-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+  align-items: flex-start;
+}
+
+.anniversary-button {
+  margin: 5px;
+}
+
+.mat-step-header {
+  pointer-events: none !important;
+}

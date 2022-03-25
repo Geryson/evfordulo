@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import { trigger, transition, animate, style } from "@angular/animations";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import {MatSliderChange} from "@angular/material/slider";
 
 @Component({
   selector: 'app-root',
@@ -28,7 +29,6 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
   ]
 })
 export class AppComponent implements OnInit {
-  isFormLinear = false;
   firstGroup = FormGroup;
   secondGroup = FormGroup;
 
@@ -38,6 +38,15 @@ export class AppComponent implements OnInit {
   title = 'Üdvözlünk titeket!';
   giftVisible = true;
   formVisible = false;
+
+  anniversaryList: number[] = [28, 29, 30, 31];
+  selectedAnniversary: number = -1;
+  anniversaryMessage = "";
+  anniversaryCompleted: boolean | undefined;
+
+  lovemeterValue = 1;
+  lovemeterMessage = "";
+  lovemeterCompleted: boolean | undefined;
 
   ngOnInit() {
     // this.firstGroup = this.formBuilder.group({
@@ -55,5 +64,31 @@ export class AppComponent implements OnInit {
     setTimeout(() => {this.formVisible = true}, 1001)
 
     this.title = "Nemsokára kinyílik..."
+  }
+
+  onAnniversarySelected(anniversary: number) {
+    this.selectedAnniversary = anniversary;
+    switch (anniversary) {
+      case 30: {
+        this.anniversaryMessage = "HELYES VÁLASZ!";
+        this.anniversaryCompleted = true;
+        break;
+      }
+      default: {
+        this.anniversaryMessage = "ROSSZ VÁLASZ!";
+        this.anniversaryCompleted = false;
+        break;
+      }
+    }
+  }
+
+  onLovemeterChange(event: MatSliderChange) {
+    if (event.value == 10) {
+      this.lovemeterMessage = "NAGYON HELYES! EZ MÁR IGEN!"
+      this.lovemeterCompleted = true;
+    } else {
+      this.lovemeterMessage = "Még egy kicsit..."
+      this.lovemeterCompleted = false;
+    }
   }
 }
