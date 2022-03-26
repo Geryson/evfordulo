@@ -105,6 +105,6 @@ export class AppComponent implements OnInit {
   }
 
   onVideoIncoming() {
-    setTimeout(() => {this.postVideoMessage = "Reméljük, tetszett ez a videó! De az a helyzet, hogy még itt sincs vége. A hozzátok közel álló személyeknél talán van még ajándék..."}, 10000)
+    setTimeout(() => {this.postVideoMessage = "Reméljük, tetszett ez a videó! De az a helyzet, hogy még itt sincs vége. A hozzátok közel álló személyeknél talán van még ajándék..."}, 240000)
   }
 }
