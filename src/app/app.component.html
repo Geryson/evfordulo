@@ -16,7 +16,7 @@
 
 </div>
 <div class="form-container" *ngIf="formVisible" [@slideInOutReversed]="formVisible">
-  <div class="card highlight-card card-small">
+  <div class="card highlight-card card-small" *ngIf="!surpriseCompleted">
 
     <span>De előbb meg kell győződnünk arról, hogy ez az ajándék valóban titeket illet. Kérjük, válaszoljatok az alábbi kérdésekre!</span>
 
@@ -55,14 +55,18 @@
       <div>{{surpriseMessage}}</div>
       <p *ngIf="surpriseCompleted">Akkor nincs más hátra, jöjjön az ajándék! Ott lesz a következő oldalon...</p>
       <div *ngIf="surpriseCompleted">
-        <button mat-button matStepperNext>Tovább</button>
+        <button mat-button matStepperNext (click)="onVideoIncoming()">Tovább</button>
       </div>
     </mat-step>
     <mat-step>
-      <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/xtjamFPvoxo?controls=0"
+      <div class="iframe-container">
+        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/xtjamFPvoxo"
               title="YouTube video player" frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen></iframe>
+      </div>
+      <br>
+      <p>{{postVideoMessage}}</p>
     </mat-step>
   </mat-stepper>
 </div>

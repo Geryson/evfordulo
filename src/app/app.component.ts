@@ -51,6 +51,8 @@ export class AppComponent implements OnInit {
   surpriseMessage = "";
   surpriseCompleted: boolean | undefined;
 
+  postVideoMessage = "";
+
   ngOnInit() {
     // this.firstGroup = this.formBuilder.group({
     //   firstCtrl: ['', Validators.required],
@@ -100,5 +102,9 @@ export class AppComponent implements OnInit {
       "Számítottatok rá?... Végülis nem baj... reméljük, hogy sikerült teljesítenünk a célt!" :
       "Még szép, hogy nem számítottatok rá. Pontosan ezért csináltuk!";
     this.surpriseCompleted = true;
+  }
+
+  onVideoIncoming() {
+    setTimeout(() => {this.postVideoMessage = "Reméljük, tetszett ez a videó! De az a helyzet, hogy még itt sincs vége. A hozzátok közel álló személyeknél még fellelhető lesz pár ajándék..."}, 10000)
   }
 }
