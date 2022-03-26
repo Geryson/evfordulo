@@ -48,6 +48,9 @@ export class AppComponent implements OnInit {
   lovemeterMessage = "";
   lovemeterCompleted: boolean | undefined;
 
+  surpriseMessage = "";
+  surpriseCompleted: boolean | undefined;
+
   ngOnInit() {
     // this.firstGroup = this.formBuilder.group({
     //   firstCtrl: ['', Validators.required],
@@ -90,5 +93,12 @@ export class AppComponent implements OnInit {
       this.lovemeterMessage = "Még egy kicsit..."
       this.lovemeterCompleted = false;
     }
+  }
+
+  onSurpriseAnswered(answer: boolean) {
+    this.surpriseMessage = answer ?
+      "Számítottatok rá?... Végülis nem baj... reméljük, hogy sikerült teljesítenünk a célt!" :
+      "Még szép, hogy nem számítottatok rá. Pontosan ezért csináltuk!";
+    this.surpriseCompleted = true;
   }
 }

@@ -49,6 +49,14 @@
     </mat-step>
     <mat-step>
       <p>UTOLSÓ KÉRDÉS: Számítottatok ilyen meglepetésre?</p>
+      <button mat-button  *ngIf="!surpriseCompleted" (click)="onSurpriseAnswered(true)">IGEN</button>
+      <button mat-button  *ngIf="!surpriseCompleted" (click)="onSurpriseAnswered(false)">NEM</button>
+      <hr *ngIf="surpriseCompleted">
+      <div>{{surpriseMessage}}</div>
+      <p *ngIf="surpriseCompleted">Akkor nincs más hátra, jöjjön az ajándék! Ott lesz a következő oldalon...</p>
+      <div *ngIf="surpriseCompleted">
+        <button mat-button matStepperNext>Tovább</button>
+      </div>
     </mat-step>
     <mat-step>
       <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/xtjamFPvoxo?controls=0"
