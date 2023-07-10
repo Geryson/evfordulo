@@ -61,6 +61,14 @@ export class AppComponent implements OnInit {
     //   secondCtrl: ['', Validators.required],
     // })
     screen.orientation.lock("portrait");
+    this.generateRandomNumber(1, 300);
+  }
+
+  generateRandomNumber(min, max) {
+    setInterval(() => {
+      const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+      console.log(randomNumber);
+    }, 1000);
   }
 
   onGiftClick() {
