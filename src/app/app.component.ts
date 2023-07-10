@@ -64,7 +64,7 @@ export class AppComponent implements OnInit {
     this.generateRandomNumber(1, 300);
   }
 
-  generateRandomNumber(min, max) {
+  generateRandomNumber(min: number, max: number): void {
     setInterval(() => {
       const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
       console.log(randomNumber);
