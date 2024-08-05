@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import { trigger, transition, animate, style } from "@angular/animations";
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from "@angular/forms";
-import {MatSliderChange} from "@angular/material/slider";
+import {MatLegacySliderChange as MatSliderChange} from "@angular/material/legacy-slider";
 
 @Component({
   selector: 'app-root',
