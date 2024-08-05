@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import { trigger, transition, animate, style } from "@angular/animations";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from "@angular/forms";
 import {MatSliderChange} from "@angular/material/slider";
 
 @Component({
@@ -29,10 +29,10 @@ import {MatSliderChange} from "@angular/material/slider";
   ]
 })
 export class AppComponent implements OnInit {
-  firstGroup = FormGroup;
-  secondGroup = FormGroup;
+  firstGroup = UntypedFormGroup;
+  secondGroup = UntypedFormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: UntypedFormBuilder) {
   }
 
   title = 'Üdvözlünk titeket!';
